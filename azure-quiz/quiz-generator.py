@@ -1,13 +1,16 @@
 #Note: The openai-python library support for Azure OpenAI is in preview.
-import os
 import openai
 import json
-import requests
 import pandas as pd
-from flask import Flask, request, session
-from flask_session import Session
+from flask import Flask, request
+from flask_cors import CORS, cross_origin
 from openai.embeddings_utils import get_embedding, cosine_similarity
+
 app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+session = dict()
+cors = CORS(app)
 
 # request parameters
 temperature=0.5
@@ -19,10 +22,7 @@ mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://vism-openai.openai.azure.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = "f0855cad9d44451180d22fad55f58fff"
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+openai.api_key = "APIKEY"
 
 # defining a function to create the prompt from the system message and the messages
 def create_prompt(system_message, messages):
@@ -37,7 +37,9 @@ def create_prompt(system_message, messages):
 system_message_template = "<|im_start|>system\n{}\n<|im_end|>"
 system_message = system_message_template.format("")
 
+
 @app.route('/content', methods=['POST'])
+@cross_origin()
 def getQuestionnaireContent():
     # creating a list of messages to track the conversation
     topic = request.form.get('topic')
@@ -53,6 +55,7 @@ def getQuestionnaireContent():
     return qna_arr
 
 @app.route('/validate', methods=['POST'])
+@cross_origin()
 def validate():
     topicResponse = session['topicText']
     user_response = request.form.get('userresponse')
@@ -118,9 +121,9 @@ def getQnAResponse(topicResponse, question):
       best_of=1,
       stop=["\n"])
     qna_response = str(qna_response)
+    app.logger.info('open api qna response ',  qna_response)
     # qna_response = requests.request("POST", mock_url + '/qna', headers={}, data="").text
     qna_response = json.loads(qna_response)["choices"][0]["text"]
-    print(qna_response)
     return qna_response
 
 def getTopicText(topic):

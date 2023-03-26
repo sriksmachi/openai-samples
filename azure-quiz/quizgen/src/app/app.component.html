@@ -308,8 +308,8 @@
     <div class="col">
       <form class="form">
         <div class="form-group">
-          <input id="topic" type="text" class="form-control mb-2 mr-sm-2" style="max-width: 300px;"  placeholder="Azure App Service"/>
-          <button class="btn btn-outline-primary btn-sm" type="button">Get Questions !</button>
+          <input id="topic" type="text" name="topic" class="form-control mb-2 mr-sm-2" style="max-width: 300px;"  placeholder="Azure App Service" [(ngModel)]="topic"/>
+          <button class="btn btn-outline-primary btn-sm" type="button" (click)="getQuestions()">Get Questions !</button>
         </div>
         </form>
         <hr/>
