@@ -19,7 +19,7 @@ mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://vism-openai.openai.azure.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = "APIKEYHERE"
+openai.api_key = "f0855cad9d44451180d22fad55f58fff"
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
