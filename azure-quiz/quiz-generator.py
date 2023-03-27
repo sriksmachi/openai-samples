@@ -22,7 +22,7 @@ mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://vism-openai.openai.azure.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = "APIKEY"
+openai.api_key = ""
 
 # defining a function to create the prompt from the system message and the messages
 def create_prompt(system_message, messages):
