@@ -1,10 +1,10 @@
 
 $resourceGroup = 'OAIResourceGroup'
 $location = 'eastus'
-$subscriptionId = ''
+$subscriptionId = '6a01260f-39d6-415f-a6c9-cf4fd479cbec'
 
 # this should be globally unique
-$openAIResourceName = 'samples-openai'
+$openAIResourceName = 'openai-samples-rg'
 
 # the model names declared here are used in the script 'quiz-generator.py', make sure they match.
 $davince = 'text-davinci-003'
@@ -14,7 +14,7 @@ $chatgpt = 'gpt-35-turbo'
 az group create --name $resourceGroup --location $location
 
 az cognitiveservices account create `
--n MyOpenAIResource `
+-n $openAIResourceName `
 -g $resourceGroup `
 -l $location `
 --kind OpenAI `

@@ -20,20 +20,21 @@ This sample is tested with WSL , Linux.
 Windows users ensure the machine has all dependencies listed in requirements.txt.
 
 - Windows with WSL / Linux machine
-- Azure Subscription with Azure Open AI enabled. For instructions on how to enable click [here](https://aka.ms/oai/access)
+- Azure Subscription 
+- Azure Open AI Service enabled. For instructions on how to enable click [here](https://aka.ms/oai/access)
 
 
 ###  Model Deployment
 
-The following script creates 3 models
-- chatgpt (gpt-35-turbo)
-- text-davinci
-- text-similarity-ada-001
+Once open AI service is enabled you need to deploy the models before starting to make API calls. 
+The following scripts deploys 3 models
+- chatgpt (gpt-35-turbo). This is used for generating content for a given topic.
+- text-davinci. This is used for generating questions and options as well as the answer for the question.
+- text-similarity-ada-001. This is used to find the similarity between answer provided by model and the option choosen by the user.
 
 ```
 deploy-models.ps1
 ```
-
 
 ## High level Flow.
 

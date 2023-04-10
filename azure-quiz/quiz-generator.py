@@ -17,12 +17,15 @@ temperature=0.5
 max_tokens=800
 top_p=0.95
 similarityModel = "text-similarity-ada-001"
+gptModel = "vism-davinci-003"
+chatgptModel = "vism-chatgpt"
 
 mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://vism-openai.openai.azure.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = ""
+openai.api_key = "785b8d732f7e4029bd3c1be42ca40c5d"
+
 
 # defining a function to create the prompt from the system message and the messages
 def create_prompt(system_message, messages):
@@ -94,7 +97,7 @@ def convertToArr(questions):
 
 def getQuesstionnaire(topicText):
     questionnaireResponse = openai.Completion.create(
-      engine="vism-davinci-003",
+      engine=gptModel,
       prompt="Generate a multiple choice quiz from the text below. Quiz should contain at least 3 questions. Each answer choice should be on a separate line, with a blank line separating each question.\n\n "  + topicText,
       temperature=0.8,
       max_tokens=500,
@@ -111,7 +114,7 @@ def getQnAResponse(topicResponse, question):
     print("QnAResponse: ", topicResponse, question)
     question = question.replace(question[0:3], "Q. ")
     qna_response = openai.Completion.create(
-      engine="vism-davinci-003",
+      engine=gptModel,
       prompt= topicResponse + "\n\nAnswer the following question from the text above.\n\n" + question + "\n",
       temperature=0.7,
       max_tokens=256,
@@ -129,7 +132,7 @@ def getQnAResponse(topicResponse, question):
 def getTopicText(topic):
     messages = [{"sender":"user","text":topic}]
     topicResponse = openai.Completion.create(
-      engine="vism-chatgpt",
+      engine=chatgptModel,
       prompt= create_prompt(system_message, messages),
       temperature=0.5,
       max_tokens=800,
