@@ -2,14 +2,15 @@
 
 ## Introduction
 
-This sample demonstrates the value of advanced large language models (LLMs) from Azure Open AI in building intelligent applications. It uses Azure Open AI to access gpt turbo, davinci, text-similarity models for generating & evaluating questions for a given topic.
+This sample demonstrates the value of advanced large language models (LLMs) from Azure Open AI in building intelligent applications. It uses Azure Open AI to access gpt-turbo, davinci, text-similarity models for generating & evaluating questions for a given topic.
 
 This repo contains end-to-end working examples from infra provisioning, to monioring and analytics.
 
 ## Features
 
 - Deploy Azure Open AI (AOI) Models using Azure CLI
-- Develop AOI application using Python, Flask API.
+- AOI API Programming model [Authentication, Request Parameters...]
+- Develop AOI application using Python, Flask API, Angular.
 - Fine Tuning the model to generate better response.
 - Estimating the cost of using AOI for a given corpus of text.
 
@@ -26,9 +27,9 @@ Screening entry level candidates like engineers on Azure Knowledge is a time tak
 
 This tool is capable of generating sample questionnaire on Azure Topics prompted by the user. It also validates each response and also provides descriptive answer for each generated question. It helps in screening candidates on Azure Knowledge & training purposes.
 
-_Note: The tool is an MVP, it is not production ready. It is developed to create knowledge on building applications using Azure Open AI, the models hallucinate at times so does the application :)._
+_Note: The tool is an MVP, it is not production ready. It is developed to create knowledge on building intelligent applications using Azure Open AI, the models hallucinate at times so does the application :)._
 
-_Note: The topics to generate Questionnaire is not limited to Azure, it can generate on any topic. Azure here is an example, in more realistic case the questionnare is generated from existing knowledge base which could be internal to the company._
+_Note: The topics to generate Questionnaire is not limited to Azure, it can generate on any topic. Azure here is an example, in more realistic case the questionnare can be generated from existing knowledge base which could be internal to the company._
 
 ## Functional Flow.
 
@@ -37,10 +38,13 @@ _Note: The topics to generate Questionnaire is not limited to Azure, it can gene
 The following diagrams shows the high level flow.
 - Step 1: User selects a topic by entering the topic name into `Text Box`
 - Step 2: The application uses chat gpt model (gpt-35-turbo) to generate text related to the topic. *For a production scenario you may feed an existing text corpus, chaptgpt is used here only for demostration purpose.*
-- Step 3: The application uses the text and appends additional prompt to generate MCQs. 
+- Step 3: The application uses the text and appends additional prompt to generate multiple choice questions (MCQs). 
 - Step 4: The application sends the questions as the response
 - Step 5: User selects the answers and clicks `Submit`
-- Step 6: The application finds the correct answer for each question by using the text generated in Step 2 & question by using gpt model.
+
+(*AOI does not share the rights answers for the questions at the moment, hence this application derives the right answers using approach explained in steps 6-9*)
+
+- Step 6: The application finds the correct answer for each question by using the text generated in Step 2 & question by using gpt model. 
 - Step 7: The application receives descriptive answer for each question.
 - Step 8: The application uses similarity model to find the cosine similarity between the vectors of option chosen by the user and the answer provided by the gpt model.
 - Step 9: The application marks the questions as `Correct` if the option with highest cosine similarity is chosen by the user.
@@ -106,8 +110,7 @@ Windows users ensure the machine has all dependencies listed in requirements.txt
 
 ###  Model Deployment
 
-Once open AI service is enabled you need to deploy the models before starting to make API calls. 
-The script `deploy-models.ps1` deploys 3 models
+Once open AI service is enabled you need to deploy the models before starting to make API calls. The script `deploy-models.ps1` deploys 3 models, for learning purpose I recommend to run each line of the script using az cli.
 
 - chatgpt (gpt-35-turbo). This is used for generating content for a given topic.
 - text-davinci. This is used for generating questions and options as well as the answer for the question.
