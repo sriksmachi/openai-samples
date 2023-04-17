@@ -1,13 +1,19 @@
-# Quiz Generator using Azure Open-AI 
+# Quiz Generator using Azure Open-AI (AOI)
 
 ## Introduction
 
-This sample demonstrates the value of advanced large language models (LLMs) from Azure Open AI.
+This sample demonstrates the value of advanced large language models (LLMs) from Azure Open AI in building intelligent applications. It uses Azure Open AI to access gpt turbo, davinci, text-similarity models for generating & evaluating questions for a given topic.
 
-## Pre-read
+This repo contains end-to-end working examples from infra provisioning, to monioring and analytics.
 
-- What is Open AI (https://openai.com/product)
-- What is Azure Open AI (https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
+## Features
+
+- Deploy Azure Open AI (AOI) Models using Azure CLI
+- Develop AOI application using Python, Flask API.
+- Fine Tuning the model to generate better response.
+- Estimating the cost of using AOI for a given corpus of text.
+
+![alt text](docs/app.png)
 
 ### Problem Statement
 
@@ -16,44 +22,17 @@ Screening entry level candidates like engineers on Azure Knowledge is a time tak
 - Personal Interview -  In this method interviewer sits with the candidate to assess the knowledge, though this is the most ideal way it is time taking and hectic specially when you want to screen a large group of candidates.
 - Automated Questionnaire - In this method a tool is fed with pre-baked questionnaire and the system pics questions randomly (like Azure Certification Exams). This reduces the overhead to quickly filter, however overtime the questions become stale and need updates.
 
-This tool addresses the above common problems. It is capable of generating sample questionnaire on Azure Topics prompted by the end user, validate the response and also provide explanation for each response. It helps in screening candidates on Azure Knowledge & Training purpose.
+#### How Azure Open AI is used to solve the problem.
+
+This tool is capable of generating sample questionnaire on Azure Topics prompted by the user. It also validates each response and also provides descriptive answer for each generated question. It helps in screening candidates on Azure Knowledge & training purposes.
 
 _Note: The tool is an MVP, it is not production ready. It is developed to create knowledge on building applications using Azure Open AI, the models hallucinate at times so does the application :)._
 
 _Note: The topics to generate Questionnaire is not limited to Azure, it can generate on any topic. Azure here is an example, in more realistic case the questionnare is generated from existing knowledge base which could be internal to the company._
 
+## Functional Flow.
 
-## Setup
-
-### Pre-requisites
-
-This sample is tested with WSL , Linux.
-Windows users ensure the machine has all dependencies listed in requirements.txt.
-
-- Windows with WSL / Linux machine
-- Azure Subscription 
-- Azure Open AI Service enabled. For instructions on how to enable click [here](https://aka.ms/oai/access)
-
-
-###  Model Deployment
-
-Once open AI service is enabled you need to deploy the models before starting to make API calls. 
-The script `deploy-models.ps1` deploys 3 models
-
-- chatgpt (gpt-35-turbo). This is used for generating content for a given topic.
-- text-davinci. This is used for generating questions and options as well as the answer for the question.
-- text-similarity-ada-001. This is used to find the similarity between answer provided by model and the option choosen by the user.
-
-```
-# To execute the script run the below command.
-deploy-models.ps1
-```
-
-
-## Usage Analytics. 
-
-
-## High level Flow.
+![alt text](docs/diagram.png)
 
 The following diagrams shows the high level flow.
 - Step 1: User selects a topic by entering the topic name into `Text Box`
@@ -65,12 +44,6 @@ The following diagrams shows the high level flow.
 - Step 7: The application receives descriptive answer for each question.
 - Step 8: The application uses similarity model to find the cosine similarity between the vectors of option chosen by the user and the answer provided by the gpt model.
 - Step 9: The application marks the questions as `Correct` if the option with highest cosine similarity is chosen by the user.
-
-![alt text](docs/diagram.png)
-
-### UI Screenshots 
-
-![alt text](docs/app.png)
 
 ## Cost Model.
 
@@ -116,7 +89,35 @@ For a application in production, you can always find the tokens per model by nav
 
 ![alt text](docs/metrics.png)
 
-## Running the application
+## Getting Started
+
+### Pre-requisites for running the application locally
+
+This sample is tested with WSL , Linux.
+Windows users ensure the machine has all dependencies listed in requirements.txt.
+
+- Windows with WSL / Linux machine
+- Azure Subscription 
+- Azure Open AI Service enabled. For instructions on how to enable click [here](https://aka.ms/oai/access)
+- Azure Developer CLI
+- Python 3+
+- Git
+- Angular CLI
+
+###  Model Deployment
+
+Once open AI service is enabled you need to deploy the models before starting to make API calls. 
+The script `deploy-models.ps1` deploys 3 models
+
+- chatgpt (gpt-35-turbo). This is used for generating content for a given topic.
+- text-davinci. This is used for generating questions and options as well as the answer for the question.
+- text-similarity-ada-001. This is used to find the similarity between answer provided by model and the option choosen by the user.
+
+```
+# To execute the script run the below command.
+deploy-models.ps1
+```
+
 
 Run the below command to run the API from root (azure-quiz). Ensure the API key is initialized in `quiz-generator.py'
 
@@ -129,6 +130,14 @@ This application points to API at http://127.0.0.1:5000
 ```
 ng serve
 ```
+## Resources
+
+- What is Open AI (https://openai.com/product)
+- What is Azure Open AI (https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
+
+## Limitations
+
+- The tool is limited to evaluating only one correct answer, it does not work well for multiple correct answers or "All of the above" type of answers. (However, this is technical feasible to achieve)
 
 
 
