@@ -4,6 +4,11 @@
 
 This sample demonstrates the value of advanced large language models (LLMs) from Azure Open AI.
 
+## Pre-read
+
+- What is Open AI (https://openai.com/product)
+- What is Azure Open AI (https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview)
+
 ### Problem Statement
 
 Screening entry level candidates like engineers on Azure Knowledge is a time taking activity. Traditionally there are two ways
