@@ -7,12 +7,16 @@ This sample demonstrates the value of advanced large language models (LLMs) from
 ### Problem Statement
 
 Screening entry level candidates like engineers on Azure Knowledge is a time taking activity. Traditionally there are two ways
+
 - Personal Interview -  In this method interviewer sits with the candidate to assess the knowledge, though this is the most ideal way it is time taking and hectic specially when you want to screen a large group of candidates.
 - Automated Questionnaire - In this method a tool is fed with pre-baked questionnaire and the system pics questions randomly (like Azure Certification Exams). This reduces the overhead to quickly filter, however overtime the questions become stale and need updates.
 
 This tool addresses the above common problems. It is capable of generating sample questionnaire on Azure Topics prompted by the end user, validate the response and also provide explanation for each response. It helps in screening candidates on Azure Knowledge & Training purpose.
 
 _Note: The tool is an MVP, it is not production ready. It is developed to create knowledge on building applications using Azure Open AI, the models hallucinate at times so does the application :)._
+
+_Note: The topics to generate Questionnaire is not limited to Azure, it can generate on any topic. Azure here is an example, in more realistic case the questionnare is generated from existing knowledge base which could be internal to the company._
+
 
 ## Setup
 
@@ -48,7 +52,7 @@ deploy-models.ps1
 
 The following diagrams shows the high level flow.
 - Step 1: User selects a topic by entering the topic name into `Text Box`
-- Step 2: The application uses chat gpt model (gpt-35-turbo) to generate text related to the topic.
+- Step 2: The application uses chat gpt model (gpt-35-turbo) to generate text related to the topic. *For a production scenario you may feed an existing text corpus, chaptgpt is used here only for demostration purpose.*
 - Step 3: The application uses the text and appends additional prompt to generate MCQs. 
 - Step 4: The application sends the questions as the response
 - Step 5: User selects the answers and clicks `Submit`
