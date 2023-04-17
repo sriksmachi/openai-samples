@@ -9,3 +9,4 @@ tokenizers==0.13.2
 transformers==4.25.1
 flask==2.2.3
 flask-Cors==3.0.10
+tiktoken==0.3.3
