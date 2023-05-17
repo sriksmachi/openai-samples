@@ -1,1 +1,7 @@
 prompt-engineering/.env
+.venv
+azure-quiz/Lib
+azure-quiz/Scripts
+azure-quiz/etc
+azure-quiz/share
+azure-quiz/.env

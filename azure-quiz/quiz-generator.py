@@ -6,6 +6,10 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from openai.embeddings_utils import get_embedding, cosine_similarity
 import tiktoken
+from os import environ as env
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -17,7 +21,7 @@ cors = CORS(app)
 temperature=0.5
 max_tokens=800
 top_p=0.95
-similarityModel = "text-similarity-ada-001"
+similarityModel = "text-embedding-ada-002"
 gptModel = "text-davinci-003"
 chatgptModel = "gpt-35-turbo"
 gptModelEncoding = "p50k_base"
@@ -27,7 +31,8 @@ mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://eastus.api.cognitive.microsoft.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = ""
+openai.api_key = "266373d58e4c4b2c81b7d6987e18c89d" # env["AZURE_OPENAI_KEY"]
+print(openai.api_key)
 calculateTokens=True
 
 # defining a function to create the prompt from the system message and the messages
