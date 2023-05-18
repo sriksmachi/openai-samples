@@ -7,9 +7,6 @@ from flask_cors import CORS, cross_origin
 from openai.embeddings_utils import get_embedding, cosine_similarity
 import tiktoken
 from os import environ as env
-from dotenv import load_dotenv
-
-load_dotenv()
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -31,8 +28,8 @@ mock_url = "https://137edb13-b1a9-49dd-b3a6-fc81f72953d8.mock.pstmn.io"
 openai.api_type = "azure"
 openai.api_base = "https://eastus.api.cognitive.microsoft.com/"
 openai.api_version = "2022-12-01"
-openai.api_key = "266373d58e4c4b2c81b7d6987e18c89d" # env["AZURE_OPENAI_KEY"]
-print(openai.api_key)
+openai.api_key = env["AZURE_OPENAI_KEY"]
+
 calculateTokens=True
 
 # defining a function to create the prompt from the system message and the messages
@@ -188,4 +185,5 @@ def num_tokens_from_string(string: str, encoding_name: str) -> int:
     return num_tokens
 
 if __name__ == '__main__':
-   app.run()
+    print(openai.api_key)
+#    app.run()
