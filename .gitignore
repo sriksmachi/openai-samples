@@ -5,3 +5,5 @@ azure-quiz/Scripts
 azure-quiz/etc
 azure-quiz/share
 azure-quiz/.env
+prompt-engineering/.chroma
+prompt-engineering/vectordb
