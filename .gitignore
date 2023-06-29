@@ -7,3 +7,5 @@ azure-quiz/share
 azure-quiz/.env
 prompt-engineering/.chroma
 prompt-engineering/vectordb
+*.jsonl
+document-classification/data
