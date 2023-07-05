@@ -1,5 +1,7 @@
 prompt-engineering/.env
-.venv
+**/.env
+document-classification/.env
+.venv*
 azure-quiz/Lib
 azure-quiz/Scripts
 azure-quiz/etc
