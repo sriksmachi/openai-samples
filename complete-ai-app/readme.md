@@ -17,11 +17,13 @@ To run this code, you will need the following:
    - `text-embedding-ada-002`
    - `text-davinci-003`
 Instructions to deploy models available [here](https://microsoftlearning.github.io/mslearn-openai/Instructions/Labs/01-get-started-azure-openai.html)
+
 2. Create Azure Cognitive Service Search with Vector DB. 
    - Create Azure Cognitive Services Search
    - Enable Vector DB
    - Create Index
 
+3. Configure `.env` with values from your infra setup.
 
 
 
