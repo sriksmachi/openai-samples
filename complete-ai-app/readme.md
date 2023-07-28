@@ -1,15 +1,14 @@
 # Build an end-to-end AI app using Azure Open AI, langchain, Azure Search Vector database.
 
 Large language models are generative models which are capable of generating text in response to a question, analytical reasoning or summary. 
-However, when you build an AI applications using LLMs there are a few fundamental aspects of application programming that needs attentions, example
+However, when you build an AI applications using LLMs there are few use cases that cannot be done using LLMs, example
 - What if you want to restrict the response to domain knowledge ? The domain knowledge here can be both structured and unstructured.
 - What if you want to get latest information from web ? (Rememeber, the training data for LLM models is restricted to date.)
 - What if you want to use multiple models ? Say Similarity model, embeddings model.
-Langchain is one framework which helps you in building a compact AI App by providing a pluggable framework.
-Using the 6 key modules we can easily solve the above challenges and langchain aids in abstracting away the implementation details. 
-This notebook teaches you to build an end-to-end AI application using langchain's LLM, tools and prompt template modules.
-The different kinds of tools used in this notebook are - SQL, Calculator, SERP API for search and Vector DB.
-In this notebook you will also learn to store documents as vector embeddings on Azure Search for performing semantic search.
+  
+Langchain is one framework that connects traditional application programming to LLMs seamlessly. It is a very powerful framework that helps you in building a compact, maintainable, testable AI App by providing a pluggable, configurable framework that is easy to use.
+
+Using the 6 key modules of langchain we can easily solve the above challenges using few lines of code, the frameworks takes care of the rest. This notebook teaches you to build an end-to-end AI application using langchain's LLM, tools and prompt template modules. The different kinds of tools used in this notebook are - SQL, Calculator, SERP API for search and Vector DB. In this notebook you will also learn to store documents as vector embeddings on Azure Search for performing semantic search.
 
 ### End-to-end Flow.
 
