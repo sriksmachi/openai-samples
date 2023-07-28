@@ -13,7 +13,7 @@ In this notebook you will also learn to store documents as vector embeddings on 
 
 ### End-to-end Flow.
 
-<img src='./imgs/arch.png'>
+<img src='./imgs/arch1.png'>
 
 
 ### Who is this notebook for ?
