@@ -1,10 +1,10 @@
 # Build an end-to-end AI app using Azure Open AI, langchain, Azure Search Vector database.
 
-Large language models are generative models which are capable of generating text in response to a question, analytical reasoning or summary. 
-However, when you build an AI applications using LLMs there are few use cases that cannot be done using LLMs, example
+Large language models (LLMs) are capable of generating text in response to a question, analytical reasoning or summary. However, when you build an AI applications using LLMs there are few use cases that cannot be done using LLMs, example
 - What if you want to restrict the response to domain knowledge ? The domain knowledge here can be both structured and unstructured.
-- What if you want to get latest information from web ? (Rememeber, the training data for LLM models is restricted to date.)
-- What if you want to use multiple models ? Say Similarity model, embeddings model.
+- What if you want to get latest information from internet ? (Remember, the training data for LLM models is restricted to date.)
+- What if you want to use multiple models ? Say Similarity model, embeddings model and GPT in a carefully orchestrated use case.
+
   
 Langchain is one framework that connects traditional application programming to LLMs seamlessly. It is a very powerful framework that helps you in building a compact, maintainable, testable AI App by providing a pluggable, configurable framework that is easy to use.
 
@@ -28,12 +28,12 @@ Before proceeding further, basic knowledge on the below concepts is recommended.
 To run this code, you will need the following:
 
 1. Azure Subscription with Azure Open AI Enabled. More details [here](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/limited-access)
-1. A deployment of the `text-embedding-ada-002` embedding model in your Azure OpenAI service. 
 1. Azure OpenAI connection and model information:
    - OpenAI API key
    - OpenAI embedding model deployment name
    - OpenAI API version
-1. Access to Cognitive Search vector search private preview, since this is the vector search-enabled version of this sample. You can sign up [here](https://aka.ms/VectorSearchSignUp).
+1. Access to `Azure Cognitive Search vector search private preview``, since this is the vector search-enabled version of this sample. You can sign up for preview [here](https://aka.ms/VectorSearchSignUp).
+2. SERP API Access (https://serpapi.com/)
 
 ## Infra setup.
 
