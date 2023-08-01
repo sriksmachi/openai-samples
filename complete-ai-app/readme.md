@@ -3,10 +3,9 @@
 Large language models (LLMs) are capable of generating text in response to a question, analytical reasoning or summary. However, when you build an AI applications using LLMs there are few use cases that cannot be done using LLMs, example
 - What if you want to restrict the response to domain knowledge ? The domain knowledge here can be both structured and unstructured.
 - What if you want to get latest information from internet ? (Remember, the training data for LLM models is restricted to date.)
-- What if you want to use multiple models ? Say Similarity model, embeddings model and GPT in a carefully orchestrated use case.
+- What if you want to interact with multiple models ? Think of a carefully orchestrated use case that interacts with similarity model, stores the responses in memory and then uses GPT model with customized prompts.
 
-  
-Langchain is one framework that connects traditional application programming to LLMs seamlessly. It is a very powerful framework that helps you in building a compact, maintainable, testable AI App by providing a pluggable, configurable framework that is easy to use.
+Langchain is one framework that connects traditional application programming to LLMs seamlessly. It is a very powerful framework that helps you in building a compact, maintainable, testable AI App by providing a pluggable, configurable framework that is easy to use and abstracts away the underlying components like AI models, versions, plugins etc.
 
 Using the 6 key modules of langchain we can easily solve the above challenges using few lines of code, the frameworks takes care of the rest. This notebook teaches you to build an end-to-end AI application using langchain's LLM, tools and prompt template modules. The different kinds of tools used in this notebook are - SQL, Calculator, SERP API for search and Vector DB. In this notebook you will also learn to store documents as vector embeddings on Azure Search for performing semantic search.
 
